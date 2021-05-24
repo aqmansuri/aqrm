@@ -12,6 +12,9 @@
     "build": "react-scripts build",
     "postinstall": "husky install",
     "test": "react-scripts test",
+    "test:ci": "export CI=true; react-scripts test",
+    "test:cov": "export CI=true; react-scripts test --coverage",
+    "test:upd": "export CI=true; react-scripts test --updateSnapshot",
     "eject": "react-scripts eject"
   },
   "dependencies": {
