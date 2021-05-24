@@ -1,0 +1,6 @@
+{
+  "appId": "io.ionic.teataster",
+  "appName": "Tea Tasting Notes",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
