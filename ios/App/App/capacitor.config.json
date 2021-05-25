@@ -2,5 +2,10 @@
   "appId": "io.ionic.teataster",
   "appName": "Tea Tasting Notes",
   "webDir": "build",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
 }
