@@ -3,7 +3,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import TeaPage from './tea/TeaPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,18 +26,20 @@ import './theme/variables.css';
 
 const App: React.FC = () => {
   useEffect(() => {
-    if (isPlatform('capacitor')) SplashScreen.hide();
+    if (isPlatform('capacitor')) {
+      SplashScreen.hide();
+    }
   }, []);
 
   return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
+          <Route exact path="/tea">
+            <TeaPage />
           </Route>
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Redirect to="/tea" />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
