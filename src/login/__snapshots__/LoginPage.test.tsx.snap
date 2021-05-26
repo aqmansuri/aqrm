@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> renders consistently 1`] = `
+<DocumentFragment>
+  <div
+    class="ion-page"
+  >
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Login
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-header
+        collapse="condense"
+      >
+        <ion-toolbar>
+          <ion-title
+            size="large"
+          >
+            Login
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <form>
+        <ion-list>
+          <ion-item>
+            <ion-label
+              position="floating"
+            >
+              E-Mail Address
+            </ion-label>
+            <ion-input
+              data-testid="email-input"
+              type="email"
+            />
+          </ion-item>
+          <ion-item>
+            <ion-label
+              position="floating"
+            >
+              Password
+            </ion-label>
+            <ion-input
+              data-testid="password-input"
+              type="password"
+            />
+          </ion-item>
+        </ion-list>
+        <div
+          class="error-message"
+          data-testid="errors"
+        >
+          <div />
+          <div />
+          <div />
+        </div>
+      </form>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-button
+          data-testid="submit-button"
+          disabled="true"
+          expand="full"
+        >
+          Sign In
+          <ion-icon
+            icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Log In</title><path d='M192 176v-40a40 40 0 0140-40h160a40 40 0 0140 40v240a40 40 0 01-40 40H240c-22.09 0-48-17.91-48-40v-40' stroke-linecap='round' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/><path stroke-linecap='round' stroke-linejoin='round' d='M288 336l80-80-80-80M80 256h272' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            slot="end"
+          />
+        </ion-button>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+</DocumentFragment>
+`;

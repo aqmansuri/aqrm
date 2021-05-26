@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import TeaPage from './tea/TeaPage';
+import LoginPage from './login/LoginPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,6 +24,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/global.css';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -37,6 +39,9 @@ const App: React.FC = () => {
         <IonRouterOutlet>
           <Route exact path="/tea">
             <TeaPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/tea" />

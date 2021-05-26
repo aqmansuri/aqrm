@@ -14,3 +14,5 @@ window.matchMedia =
       removeListener: function () {},
     };
   };
+import { mockIonicReact } from '@ionic/react-test-utils';
+mockIonicReact();
