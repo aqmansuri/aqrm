@@ -1,24 +1,33 @@
-import { render } from '@testing-library/react';
-import TeaPage, { teaData, listToMatrix } from './TeaPage';
+import { render, waitFor } from '@testing-library/react';
+import TeaPage, { listToMatrix } from './TeaPage';
+import { expectedTeas } from './__mocks__/mockTeas';
+
+const mockTeas = expectedTeas;
+jest.mock('./useTea', () => ({
+  useTea: () => ({
+    getTeas: jest.fn(() => Promise.resolve(mockTeas)),
+    getTeaById: jest.fn(),
+  }),
+}));
 
 describe('<TeaPage />', () => {
-  it('displays the header', () => {
+  it('displays the header', async () => {
     const { container } = render(<TeaPage />);
-    expect(container).toHaveTextContent(/Tea/);
+    await waitFor(() => expect(container).toHaveTextContent(/Tea/));
   });
 
-  it('renders consistently', () => {
+  it('renders consistently', async () => {
     const { asFragment } = render(<TeaPage />);
-    expect(asFragment()).toMatchSnapshot();
+    await waitFor(() => expect(asFragment()).toMatchSnapshot());
   });
 
   describe('initialization', () => {
     it('makes a tea matrix', () => {
       const teaMatrix = [
-        [teaData[0], teaData[1], teaData[2], teaData[3]],
-        [teaData[4], teaData[5], teaData[6], teaData[7]],
+        [expectedTeas[0], expectedTeas[1], expectedTeas[2], expectedTeas[3]],
+        [expectedTeas[4], expectedTeas[5], expectedTeas[6], expectedTeas[7]],
       ];
-      expect(listToMatrix()).toEqual(teaMatrix);
+      expect(listToMatrix(expectedTeas)).toEqual(teaMatrix);
     });
   });
 });

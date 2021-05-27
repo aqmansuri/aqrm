@@ -34,7 +34,7 @@ export const useTea = () => {
   const fromJsonToTea = (obj: any): Tea => {
     return {
       ...obj,
-      image: require(`../assets/images/${images[obj.id - 1]}.jpg`),
+      image: require(`../assets/images/${images[obj.id - 1]}.jpg`).default,
     };
   };
 
