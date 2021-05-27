@@ -1,0 +1,42 @@
+import { useCallback } from 'react';
+import { useAuthInterceptor } from '../core/auth';
+import { Tea } from '../shared/models';
+
+const images: string[] = [
+  'green',
+  'black',
+  'herbal',
+  'oolong',
+  'dark',
+  'puer',
+  'white',
+  'yellow',
+];
+
+export const useTea = () => {
+  const { instance } = useAuthInterceptor();
+
+  const getTeas = useCallback(async (): Promise<Tea[]> => {
+    const url = `/tea-categories`;
+    const { data } = await instance.get(url);
+    return data.map((item: any) => fromJsonToTea(item));
+  }, [instance]);
+
+  const getTeaById = useCallback(
+    async (id: number): Promise<Tea> => {
+      const url = `/tea-categories/${id}`;
+      const { data } = await instance.get(url);
+      return fromJsonToTea(data);
+    },
+    [instance],
+  );
+
+  const fromJsonToTea = (obj: any): Tea => {
+    return {
+      ...obj,
+      image: require(`../assets/images/${images[obj.id - 1]}.jpg`),
+    };
+  };
+
+  return { getTeas, getTeaById };
+};
