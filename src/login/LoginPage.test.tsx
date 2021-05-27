@@ -26,7 +26,6 @@ describe('<LoginPage />', () => {
       const email = getByTestId(/email-input/);
       await waitFor(() => {
         fireEvent.ionChange(email, 'test@test.com');
-        fireEvent.ionBlur(email);
       });
       expect(button.disabled).toBeTruthy();
     });
@@ -37,7 +36,6 @@ describe('<LoginPage />', () => {
       const password = getByTestId(/password-input/);
       await waitFor(() => {
         fireEvent.ionChange(password, 'P@ssword123');
-        fireEvent.ionBlur(password);
       });
       expect(button.disabled).toBeTruthy();
     });
@@ -49,9 +47,7 @@ describe('<LoginPage />', () => {
       const password = getByTestId(/password-input/);
       await waitFor(() => {
         fireEvent.ionChange(email, 'test@test.com');
-        fireEvent.ionBlur(email);
         fireEvent.ionChange(password, 'P@ssword123');
-        fireEvent.ionBlur(password);
       });
       expect(button.disabled).toBeFalsy();
     });
@@ -70,7 +66,6 @@ describe('<LoginPage />', () => {
       const email = getByTestId(/email-input/);
       await waitFor(() => {
         fireEvent.ionChange(email, 'test@test.com');
-        fireEvent.ionBlur(email);
         fireEvent.ionChange(email, '');
       });
       expect(errors).toHaveTextContent(/E-Mail Address is required/);
@@ -82,7 +77,6 @@ describe('<LoginPage />', () => {
       const email = getByTestId(/email-input/);
       await waitFor(() => {
         fireEvent.ionChange(email, 'foo');
-        fireEvent.ionBlur(email);
       });
       expect(errors).toHaveTextContent(
         /E-Mail Address must have a valid format/,
@@ -95,7 +89,6 @@ describe('<LoginPage />', () => {
       const password = getByTestId(/password-input/);
       await waitFor(() => {
         fireEvent.ionChange(password, 'P@ssword123');
-        fireEvent.ionBlur(password);
         fireEvent.ionChange(password, '');
       });
       expect(errors).toHaveTextContent(/Password is required/);

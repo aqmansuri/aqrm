@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import {
   IonButton,
   IonContent,
@@ -13,15 +13,30 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
+import { useHistory } from 'react-router';
 import { useForm, Controller } from 'react-hook-form';
 import { logInOutline } from 'ionicons/icons';
+import { useAuthentication } from '../core/auth';
 
 const LoginPage: React.FC = () => {
+  const { login, session, error } = useAuthentication();
+  const history = useHistory();
   const {
     handleSubmit,
     control,
     formState: { errors, isDirty, isValid },
-  } = useForm({ mode: 'onTouched' });
+  } = useForm<{
+    email: string;
+    password: string;
+  }>({ mode: 'onChange' });
+
+  useEffect(() => {
+    session && history.replace('/tea');
+  }, [session, history]);
+
+  const handleLogin = async (data: { email: string; password: string }) => {
+    await login(data.email, data.password);
+  };
 
   return (
     <IonPage>
@@ -41,11 +56,10 @@ const LoginPage: React.FC = () => {
             <IonItem>
               <IonLabel position="floating">E-Mail Address</IonLabel>
               <Controller
-                render={({ field: { onChange, value, onBlur } }) => (
+                render={({ field: { onChange, value } }) => (
                   <IonInput
                     data-testid="email-input"
                     onIonChange={e => onChange(e.detail.value!)}
-                    onIonBlur={onBlur}
                     value={value}
                     type="email"
                   />
@@ -64,11 +78,10 @@ const LoginPage: React.FC = () => {
             <IonItem>
               <IonLabel position="floating">Password</IonLabel>
               <Controller
-                render={({ field: { onChange, value, onBlur } }) => (
+                render={({ field: { onChange, value } }) => (
                   <IonInput
                     data-testid="password-input"
                     onIonChange={e => onChange(e.detail.value!)}
-                    onIonBlur={onBlur}
                     value={value}
                     type="password"
                   />
@@ -90,6 +103,7 @@ const LoginPage: React.FC = () => {
             <div>
               {errors.password?.type === 'required' && 'Password is required'}
             </div>
+            {error && <div>{error}</div>}
           </div>
         </form>
       </IonContent>
@@ -98,7 +112,7 @@ const LoginPage: React.FC = () => {
           <IonButton
             expand="full"
             disabled={!isDirty || !isValid}
-            onClick={handleSubmit(data => console.log(data))}
+            onClick={handleSubmit(data => handleLogin(data))}
             data-testid="submit-button"
           >
             Sign In

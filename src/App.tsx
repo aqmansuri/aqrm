@@ -3,7 +3,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { AuthProvider } from './core/auth';
+import { AuthProvider, PrivateRoute } from './core/auth';
 import TeaPage from './tea/TeaPage';
 import LoginPage from './login/LoginPage';
 
@@ -39,9 +39,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <IonReactRouter>
           <IonRouterOutlet>
-            <Route exact path="/tea">
-              <TeaPage />
-            </Route>
+            <PrivateRoute exact path="/tea" component={TeaPage} />
             <Route exact path="/login">
               <LoginPage />
             </Route>
