@@ -5,6 +5,7 @@ import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { AuthProvider, PrivateRoute } from './core/auth';
 import TeaPage from './tea/TeaPage';
+import TeaDetailsPage from './tea/details/TeaDetailsPage';
 import LoginPage from './login/LoginPage';
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,6 +41,7 @@ const App: React.FC = () => {
         <IonReactRouter>
           <IonRouterOutlet>
             <PrivateRoute exact path="/tea" component={TeaPage} />
+            <PrivateRoute path="/tea/details/:id" component={TeaDetailsPage} />
             <Route exact path="/login">
               <LoginPage />
             </Route>
