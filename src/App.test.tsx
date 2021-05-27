@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { isPlatform } from '@ionic/react';
 import App from './App';
@@ -14,27 +14,27 @@ describe('<App />', () => {
 
   describe('in an Android context', () => {
     beforeEach(() => (isPlatform as any).mockImplementation(() => true));
-    it('should hide the splash screen', () => {
+    it('should hide the splash screen', async () => {
       const { container } = render(<App />);
-      expect(container).toBeDefined();
+      await waitFor(() => expect(container).toBeDefined());
       expect(SplashScreen.hide).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('in an iOS context', () => {
     beforeEach(() => (isPlatform as any).mockImplementation(() => true));
-    it('should hide the splash screen', () => {
+    it('should hide the splash screen', async () => {
       const { container } = render(<App />);
-      expect(container).toBeDefined();
+      await waitFor(() => expect(container).toBeDefined());
       expect(SplashScreen.hide).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('in a web context', () => {
     beforeEach(() => (isPlatform as any).mockImplementation(() => false));
-    it('should not hide the splash screen', () => {
+    it('should not hide the splash screen', async () => {
       const { container } = render(<App />);
-      expect(container).toBeDefined();
+      await waitFor(() => expect(container).toBeDefined());
       expect(SplashScreen.hide).not.toHaveBeenCalled();
     });
   });
