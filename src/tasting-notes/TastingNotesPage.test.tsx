@@ -1,7 +1,10 @@
 import { render, waitFor } from '@testing-library/react';
+import { Share } from '@capacitor/share';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 import TastingNotesPage from './TastingNotesPage';
 import { mockNotes } from './__mocks__/mockNotes';
+
+jest.mock('@capacitor/share');
 
 let mockGetNotes = jest.fn(async () => mockNotes);
 jest.mock('./useTastingNotes', () => ({
@@ -11,7 +14,10 @@ jest.mock('./useTastingNotes', () => ({
 }));
 
 describe('<TastingNotesPage />', () => {
-  beforeEach(() => (mockGetNotes = jest.fn(async () => mockNotes)));
+  beforeEach(() => {
+    mockGetNotes = jest.fn(async () => mockNotes);
+    Share.share = jest.fn();
+  });
 
   it('renders consistently', async () => {
     const { asFragment } = render(<TastingNotesPage />);
@@ -52,6 +58,29 @@ describe('<TastingNotesPage />', () => {
       await waitFor(() => {
         expect(getByText(/Update Tasting Note/)).toBeDefined();
       });
+    });
+  });
+
+  describe('sharing a note', () => {
+    it('calls the share plugin when called', async () => {
+      const { getByTestId } = render(<TastingNotesPage />);
+      const item = await waitFor(() => getByTestId(/share0/));
+      fireEvent.click(item);
+      await waitFor(() => expect(Share.share).toHaveBeenCalledTimes(1));
+    });
+
+    it('shares the brand, name, rating, and notes', async () => {
+      const { getByTestId } = render(<TastingNotesPage />);
+      const item = await waitFor(() => getByTestId(/share0/));
+      fireEvent.click(item);
+      await waitFor(() =>
+        expect(Share.share).toHaveBeenCalledWith({
+          title: 'Lipton: Yellow Label',
+          text: `Overly acidic, highly tannic flavor Rated 1/5 stars`,
+          dialogTitle: `Share Yellow Label's tasting note`,
+          url: 'https://tea-taster-training.web.app',
+        }),
+      );
     });
   });
 
