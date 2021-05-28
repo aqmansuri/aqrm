@@ -21,14 +21,14 @@ describe('<Rating />', () => {
 
     it('sets the rating on click', async () => {
       const { getByTestId } = render(<Rating {...props} />);
-      const fourStars = getByTestId('Rate 4 stars');
+      const fourStars = getByTestId(/Rate 4 stars/);
       fireEvent.click(fourStars);
       expect(props.onRatingChange).toHaveBeenCalledWith(4);
     });
 
     it('calls the change handler on click', async () => {
       const { getByTestId } = render(<Rating {...props} />);
-      const fourStars = getByTestId('Rate 4 stars');
+      const fourStars = getByTestId(/Rate 4 stars/);
       fireEvent.click(fourStars);
       expect(props.onRatingChange).toHaveBeenCalledTimes(1);
     });
@@ -54,7 +54,7 @@ describe('<Rating />', () => {
 
     it('does not call the change handler on click', () => {
       const { getByTestId } = render(<Rating {...props} />);
-      const fourStars = getByTestId('Rate 4 stars');
+      const fourStars = getByTestId(/Rate 4 stars/);
       fireEvent.click(fourStars);
       expect(props.onRatingChange).not.toHaveBeenCalled();
     });

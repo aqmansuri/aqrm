@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TastingNoteEditor /> save renders consistently 1`] = `
+<DocumentFragment>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Add New Tasting Note
+      </ion-title>
+      <ion-buttons
+        slot="primary"
+      >
+        <ion-button
+          data-testid="cancel-button"
+        >
+          <ion-icon
+            icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z'/></svg>"
+            slot="icon-only"
+          />
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <form>
+      <ion-list>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Brand
+          </ion-label>
+          <ion-input
+            data-testid="brand-input"
+            value=""
+          />
+        </ion-item>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Name
+          </ion-label>
+          <ion-input
+            data-testid="name-input"
+            value=""
+          />
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Category
+          </ion-label>
+          0
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Rating
+          </ion-label>
+          <div
+            class="rating"
+            style="opacity: 1;"
+          >
+            <ion-icon
+              data-testid="Rate 1 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 2 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 3 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 4 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 5 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Notes
+          </ion-label>
+          <ion-textarea
+            data-testid="notes-input"
+            rows="5"
+            value=""
+          />
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button
+        data-testid="submit-button"
+        disabled="false"
+        expand="full"
+        type="submit"
+      >
+        Add
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</DocumentFragment>
+`;
+
+exports[`<TastingNoteEditor /> update renders consistently 1`] = `
+<DocumentFragment>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Update Tasting Note
+      </ion-title>
+      <ion-buttons
+        slot="primary"
+      >
+        <ion-button
+          data-testid="cancel-button"
+        >
+          <ion-icon
+            icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z'/></svg>"
+            slot="icon-only"
+          />
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <form>
+      <ion-list>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Brand
+          </ion-label>
+          <ion-input
+            data-testid="brand-input"
+            value="Lipton"
+          />
+        </ion-item>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Name
+          </ion-label>
+          <ion-input
+            data-testid="name-input"
+            value="Yellow Label"
+          />
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Category
+          </ion-label>
+          0
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Rating
+          </ion-label>
+          <div
+            class="rating"
+            style="opacity: 1;"
+          >
+            <ion-icon
+              data-testid="Rate 1 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 2 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 3 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 4 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z'/></svg>"
+            />
+            <ion-icon
+              data-testid="Rate 5 stars"
+              icon="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Star</title><path d='M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>"
+            />
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label
+            position="floating"
+          >
+            Notes
+          </ion-label>
+          <ion-textarea
+            data-testid="notes-input"
+            rows="5"
+            value="Overly acidic, highly tannic flavor"
+          />
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button
+        data-testid="submit-button"
+        disabled="false"
+        expand="full"
+        type="submit"
+      >
+        Update
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</DocumentFragment>
+`;
