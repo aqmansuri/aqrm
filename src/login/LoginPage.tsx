@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
   }>({ mode: 'onChange' });
 
   useEffect(() => {
-    session && history.replace('/tea');
+    session && history.replace('/tabs');
   }, [session, history]);
 
   const handleLogin = async (data: { email: string; password: string }) => {

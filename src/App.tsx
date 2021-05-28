@@ -4,8 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, isPlatform } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { AuthProvider, PrivateRoute } from './core/auth';
-import TeaPage from './tea/TeaPage';
-import TeaDetailsPage from './tea/details/TeaDetailsPage';
+import Tabs from './Tabs';
 import LoginPage from './login/LoginPage';
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,14 +39,9 @@ const App: React.FC = () => {
       <AuthProvider>
         <IonReactRouter>
           <IonRouterOutlet>
-            <PrivateRoute exact path="/tea" component={TeaPage} />
-            <PrivateRoute path="/tea/details/:id" component={TeaDetailsPage} />
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/tea" />
-            </Route>
+            <Route exact path="/login" component={LoginPage} />
+            <PrivateRoute path="/tabs" component={Tabs} />
+            <Route exact path="/" render={() => <Redirect to="/login" />} />
           </IonRouterOutlet>
         </IonReactRouter>
       </AuthProvider>
