@@ -71,7 +71,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="main-content">
         <form>
           <IonList>
             <IonItem>
