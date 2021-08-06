@@ -29,7 +29,168 @@ exports[`<TeaPage /> renders consistently 1`] = `
       </ion-header>
       <ion-grid
         class="tea-grid"
-      />
+      >
+        <ion-row
+          class="ion-justify-content-center ion-align-items-stretch"
+        >
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Green
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Green tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Black
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Black tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Herbal
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Herbal Infusion description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Oolong
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Oolong tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row
+          class="ion-justify-content-center ion-align-items-stretch"
+        >
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Dark
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Dark tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Puer
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Puer tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  White
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                White tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col
+            size="12"
+            size-md="6"
+            size-xl="3"
+          >
+            <ion-card
+              button="true"
+            >
+              <ion-img />
+              <ion-card-header>
+                <ion-card-title>
+                  Yellow
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Yellow tea description.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-content>
   </div>
 </DocumentFragment>

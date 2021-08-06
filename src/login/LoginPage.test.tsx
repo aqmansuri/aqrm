@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 import LoginPage from './LoginPage';
@@ -78,9 +79,7 @@ describe('<LoginPage />', () => {
       await waitFor(() => {
         fireEvent.ionChange(email, 'foo');
       });
-      expect(errors).toHaveTextContent(
-        /E-Mail Address must have a valid format/,
-      );
+      expect(errors).toHaveTextContent(/E-Mail Address must have a valid format/);
     });
 
     it('displays an error message if the password is dirty and empty', async () => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   IonButton,
   IonButtons,
@@ -32,10 +33,7 @@ const AboutPage: React.FC = () => {
         <IonToolbar>
           <IonTitle>About Tea Taster</IonTitle>
           <IonButtons slot="end">
-            <IonButton
-              data-testid="logout-button"
-              onClick={() => handleLogout()}
-            >
+            <IonButton data-testid="logout-button" onClick={() => handleLogout()}>
               <IonIcon slot="icon-only" icon={logOutOutline} />
             </IonButton>
           </IonButtons>

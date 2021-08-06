@@ -52,7 +52,51 @@ exports[`<TastingNoteEditor /> save renders consistently 1`] = `
           <ion-label>
             Category
           </ion-label>
-          0
+          <ion-select
+            data-testid="category-select"
+            value="1"
+          >
+            <ion-select-option
+              value="1"
+            >
+              Green
+            </ion-select-option>
+            <ion-select-option
+              value="2"
+            >
+              Black
+            </ion-select-option>
+            <ion-select-option
+              value="3"
+            >
+              Herbal
+            </ion-select-option>
+            <ion-select-option
+              value="4"
+            >
+              Oolong
+            </ion-select-option>
+            <ion-select-option
+              value="5"
+            >
+              Dark
+            </ion-select-option>
+            <ion-select-option
+              value="6"
+            >
+              Puer
+            </ion-select-option>
+            <ion-select-option
+              value="7"
+            >
+              White
+            </ion-select-option>
+            <ion-select-option
+              value="8"
+            >
+              Yellow
+            </ion-select-option>
+          </ion-select>
         </ion-item>
         <ion-item>
           <ion-label>
@@ -166,7 +210,51 @@ exports[`<TastingNoteEditor /> update renders consistently 1`] = `
           <ion-label>
             Category
           </ion-label>
-          0
+          <ion-select
+            data-testid="category-select"
+            value="1"
+          >
+            <ion-select-option
+              value="1"
+            >
+              Green
+            </ion-select-option>
+            <ion-select-option
+              value="2"
+            >
+              Black
+            </ion-select-option>
+            <ion-select-option
+              value="3"
+            >
+              Herbal
+            </ion-select-option>
+            <ion-select-option
+              value="4"
+            >
+              Oolong
+            </ion-select-option>
+            <ion-select-option
+              value="5"
+            >
+              Dark
+            </ion-select-option>
+            <ion-select-option
+              value="6"
+            >
+              Puer
+            </ion-select-option>
+            <ion-select-option
+              value="7"
+            >
+              White
+            </ion-select-option>
+            <ion-select-option
+              value="8"
+            >
+              Yellow
+            </ion-select-option>
+          </ion-select>
         </ion-item>
         <ion-item>
           <ion-label>

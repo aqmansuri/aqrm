@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   IonButton,
   IonButtons,
@@ -28,10 +28,7 @@ interface TastingNoteEditorProps {
   note?: TastingNote;
 }
 
-const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
-  onDismiss,
-  note = undefined,
-}) => {
+const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({ onDismiss, note = undefined }) => {
   const {
     handleSubmit,
     control,
@@ -62,10 +59,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
         <IonToolbar>
           <IonTitle>{note ? 'Update' : 'Add New'} Tasting Note</IonTitle>
           <IonButtons slot="primary">
-            <IonButton
-              data-testid="cancel-button"
-              onClick={() => onDismiss({ refresh: false })}
-            >
+            <IonButton data-testid="cancel-button" onClick={() => onDismiss({ refresh: false })}>
               <IonIcon slot="icon-only" icon={close} />
             </IonButton>
           </IonButtons>
@@ -78,11 +72,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
               <IonLabel position="floating">Brand</IonLabel>
               <Controller
                 render={({ field: { onChange, value } }) => (
-                  <IonInput
-                    data-testid="brand-input"
-                    onIonChange={e => onChange(e.detail.value!)}
-                    value={value}
-                  />
+                  <IonInput data-testid="brand-input" onIonChange={(e) => onChange(e.detail.value!)} value={value} />
                 )}
                 control={control}
                 name="brand"
@@ -94,11 +84,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
               <IonLabel position="floating">Name</IonLabel>
               <Controller
                 render={({ field: { onChange, value } }) => (
-                  <IonInput
-                    data-testid="name-input"
-                    onIonChange={e => onChange(e.detail.value!)}
-                    value={value}
-                  />
+                  <IonInput data-testid="name-input" onIonChange={(e) => onChange(e.detail.value!)} value={value} />
                 )}
                 control={control}
                 name="name"
@@ -114,7 +100,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
                     {teas.length && (
                       <IonSelect
                         data-testid="category-select"
-                        onIonChange={e => onChange(e.detail.value!)}
+                        onIonChange={(e) => onChange(e.detail.value!)}
                         value={value}
                       >
                         {teas.map((tea: Tea) => (
@@ -134,9 +120,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
             <IonItem>
               <IonLabel>Rating</IonLabel>
               <Controller
-                render={({ field: { onChange, value } }) => (
-                  <Rating onRatingChange={onChange} initialRating={value} />
-                )}
+                render={({ field: { onChange, value } }) => <Rating onRatingChange={onChange} initialRating={value} />}
                 control={control}
                 name="rating"
                 rules={{ required: true }}
@@ -149,7 +133,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
                 render={({ field: { onChange, value } }) => (
                   <IonTextarea
                     data-testid="notes-input"
-                    onIonChange={e => onChange(e.detail.value!)}
+                    onIonChange={(e) => onChange(e.detail.value!)}
                     rows={5}
                     value={value}
                   />
@@ -170,7 +154,7 @@ const TastingNoteEditor: React.FC<TastingNoteEditorProps> = ({
             type="submit"
             disabled={!isValid}
             expand="full"
-            onClick={handleSubmit(data => save(data))}
+            onClick={handleSubmit((data) => save(data))}
           >
             {note ? 'Update' : 'Add'}
           </IonButton>

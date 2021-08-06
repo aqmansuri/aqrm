@@ -10,6 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && cap copy",
+    "lint": "eslint . --ext .ts,.tsx",
     "postinstall": "husky install",
     "test": "react-scripts test",
     "test:ci": "export CI=true; react-scripts test",
@@ -65,7 +66,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "3.0.0",
-    "@ionic/prettier-config": "~1.0.1",
+    "@ionic/prettier-config": "~2.0.0",
     "husky": "~6.0.0",
     "prettier": "~2.3.0",
     "pretty-quick": "~3.1.0",
@@ -74,8 +75,14 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "jest/no-mocks-import": "off"
+    }
   },
   "browserslist": {
     "production": [

@@ -1,14 +1,5 @@
-import {
-  IonBackButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonImg,
-} from '@ionic/react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonImg } from '@ionic/react';
 import { useParams } from 'react-router';
 import { Rating } from '../../shared/components';
 import { Tea } from '../../shared/models';
@@ -51,7 +42,7 @@ const TeaDetailsPage: React.FC = () => {
           <Rating
             initialRating={tea?.rating}
             disabled={!tea}
-            onRatingChange={rating => saveTea({ ...tea!, rating })}
+            onRatingChange={(rating) => saveTea({ ...tea!, rating })}
           />
         </div>
       </IonContent>

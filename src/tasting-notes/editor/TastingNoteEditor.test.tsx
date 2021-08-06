@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 import TastingNoteEditor from './TastingNoteEditor';
@@ -42,9 +43,7 @@ describe('<TastingNoteEditor />', () => {
   describe('cancel button', () => {
     it('calls the dismiss function', async () => {
       const { getByTestId } = render(component);
-      const button = await waitFor(
-        () => getByTestId(/cancel-button/) as HTMLIonButtonElement,
-      );
+      const button = await waitFor(() => getByTestId(/cancel-button/) as HTMLIonButtonElement);
       fireEvent.click(button);
       expect(mockDismiss).toHaveBeenCalledTimes(1);
     });
@@ -52,15 +51,14 @@ describe('<TastingNoteEditor />', () => {
 
   describe('save', () => {
     it('renders consistently', async () => {
-      const { asFragment } = render(component);
-      await waitFor(() => expect(asFragment()).toMatchSnapshot());
+      const { asFragment, container } = render(component);
+      await waitFor(() => expect(container).toHaveTextContent(/Add New Tasting Note/));
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('has the add title', async () => {
       const { container } = render(component);
-      await waitFor(() =>
-        expect(container).toHaveTextContent(/Add New Tasting Note/),
-      );
+      await waitFor(() => expect(container).toHaveTextContent(/Add New Tasting Note/));
     });
 
     it('has the add button label', async () => {
@@ -93,22 +91,19 @@ describe('<TastingNoteEditor />', () => {
 
   describe('update', () => {
     beforeEach(() => {
-      component = (
-        <TastingNoteEditor onDismiss={mockDismiss} note={mockNotes[0]} />
-      );
+      component = <TastingNoteEditor onDismiss={mockDismiss} note={mockNotes[0]} />;
       mockSaveNote = jest.fn(() => Promise.resolve());
     });
 
     it('renders consistently', async () => {
-      const { asFragment } = render(component);
-      await waitFor(() => expect(asFragment()).toMatchSnapshot());
+      const { asFragment, container } = render(component);
+      await waitFor(() => expect(container).toHaveTextContent(/Update Tasting Note/));
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('has the update title', async () => {
       const { container } = render(component);
-      await waitFor(() =>
-        expect(container).toHaveTextContent(/Update Tasting Note/),
-      );
+      await waitFor(() => expect(container).toHaveTextContent(/Update Tasting Note/));
     });
 
     it('has the update button label', async () => {

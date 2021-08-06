@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import TeaPage, { listToMatrix } from './TeaPage';
 import { expectedTeas } from './__mocks__/mockTeas';
@@ -17,8 +18,9 @@ describe('<TeaPage />', () => {
   });
 
   it('renders consistently', async () => {
-    const { asFragment } = render(<TeaPage />);
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    const { asFragment, container } = render(<TeaPage />);
+    await waitFor(() => expect(container).toHaveTextContent(/Tea/));
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('initialization', () => {

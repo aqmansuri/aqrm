@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { Share } from '@capacitor/share';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
@@ -20,8 +21,9 @@ describe('<TastingNotesPage />', () => {
   });
 
   it('renders consistently', async () => {
-    const { asFragment } = render(<TastingNotesPage />);
-    await waitFor(() => expect(asFragment).toMatchSnapshot());
+    const { asFragment, getByTestId } = render(<TastingNotesPage />);
+    await waitFor(() => expect(getByTestId(/note0/)).toBeDefined());
+    expect(asFragment).toMatchSnapshot();
   });
 
   describe('initialization', () => {
@@ -44,9 +46,7 @@ describe('<TastingNotesPage />', () => {
       const { getByText, getByTestId } = render(<TastingNotesPage />);
       const button = getByTestId(/fab-button/) as HTMLIonButtonElement;
       fireEvent.click(button);
-      await waitFor(() =>
-        expect(getByText('Add New Tasting Note')).toBeDefined(),
-      );
+      await waitFor(() => expect(getByText('Add New Tasting Note')).toBeDefined());
     });
   });
 
@@ -79,7 +79,7 @@ describe('<TastingNotesPage />', () => {
           text: `Overly acidic, highly tannic flavor Rated 1/5 stars`,
           dialogTitle: `Share Yellow Label's tasting note`,
           url: 'https://tea-taster-training.web.app',
-        }),
+        })
       );
     });
   });

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   IonCard,
   IonCardContent,
@@ -23,7 +23,7 @@ export const listToMatrix = (teaArray: Tea[]): Tea[][] => {
   let teaMatrix: Tea[][] = [];
 
   let row: Tea[] = [];
-  teaArray.forEach(tea => {
+  teaArray.forEach((tea) => {
     row.push(tea);
     if (row.length === 4) {
       teaMatrix.push(row);
@@ -68,11 +68,8 @@ const TeaPage: React.FC = () => {
 
         <IonGrid className="tea-grid">
           {listToMatrix(teas).map((row, idx) => (
-            <IonRow
-              key={idx}
-              className="ion-justify-content-center ion-align-items-stretch"
-            >
-              {row.map(tea => (
+            <IonRow key={idx} className="ion-justify-content-center ion-align-items-stretch">
+              {row.map((tea) => (
                 <IonCol size="12" sizeMd="6" sizeXl="3" key={tea.id}>
                   <IonCard button onClick={() => showDetailsPage(tea.id)}>
                     <IonImg src={tea.image} />

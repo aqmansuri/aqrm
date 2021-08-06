@@ -1,7 +1,7 @@
+import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { Storage } from '@capacitor/storage';
 import Axios from 'axios';
 import { IonSpinner } from '@ionic/react';
-import { createContext, useEffect, useReducer, useState } from 'react';
 import { Session } from '../models';
 
 interface AuthState {
@@ -26,10 +26,7 @@ export type AuthAction =
   | { type: 'LOGOUT_SUCCESS' }
   | { type: 'LOGOUT_FAILURE'; error: string };
 
-const reducer = (
-  state: AuthState = initialState,
-  action: AuthAction,
-): AuthState => {
+const reducer = (state: AuthState = initialState, action: AuthAction): AuthState => {
   switch (action.type) {
     case 'CLEAR_SESSION':
       return { ...state, session: undefined };
@@ -85,11 +82,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ state, dispatch }}>
-      {initializing ? (
-        <IonSpinner name="dots" data-testid="initializing" />
-      ) : (
-        children
-      )}
+      {initializing ? <IonSpinner name="dots" data-testid="initializing" /> : children}
     </AuthContext.Provider>
   );
 };

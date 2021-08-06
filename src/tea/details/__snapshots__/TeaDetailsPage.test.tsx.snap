@@ -41,11 +41,15 @@ exports[`<TeaDetailsPage /> renders consistently 1`] = `
         >
           <ion-img />
         </div>
-        <h1 />
-        <p />
+        <h1>
+          Green
+        </h1>
+        <p>
+          Green tea description.
+        </p>
         <div
           class="rating"
-          style="opacity: 0.25;"
+          style="opacity: 1;"
         >
           <ion-icon
             data-testid="Rate 1 stars"

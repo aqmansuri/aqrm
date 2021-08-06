@@ -15,8 +15,7 @@ export const useAuthInterceptor = () => {
   instance.defaults.baseURL = process.env.REACT_APP_DATA_SERVICE;
 
   instance.interceptors.request.use((config: AxiosRequestConfig) => {
-    if (state.session)
-      config.headers.Authorization = `Bearer ${state.session.token}`;
+    if (state.session) config.headers.Authorization = `Bearer ${state.session.token}`;
     return config;
   });
 
@@ -28,7 +27,7 @@ export const useAuthInterceptor = () => {
         return Promise.reject({ ...error, message: 'Unauthorized session.' });
       }
       return Promise.reject(error);
-    },
+    }
   );
 
   return { instance };

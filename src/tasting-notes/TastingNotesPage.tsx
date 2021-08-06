@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   IonPage,
   IonHeader,
@@ -26,8 +26,7 @@ const TastingNotesPage: React.FC = () => {
   const { getNotes, deleteNote } = useTastingNotes();
   const [showModal, setShowModal] = useState<boolean>(false);
   const [notes, setNotes] = useState<TastingNote[]>([]);
-  const [selectedNote, setSelectedNote] =
-    useState<TastingNote | undefined>(undefined);
+  const [selectedNote, setSelectedNote] = useState<TastingNote | undefined>(undefined);
 
   useEffect(() => {
     (async () => {
@@ -87,10 +86,7 @@ const TastingNotesPage: React.FC = () => {
         <IonList>
           {notes.map((note, idx) => (
             <IonItemSliding key={idx}>
-              <IonItem
-                data-testid={`note${idx}`}
-                onClick={() => handleUpdateNote(note)}
-              >
+              <IonItem data-testid={`note${idx}`} onClick={() => handleUpdateNote(note)}>
                 <IonLabel>
                   <div>{note.brand}</div>
                   <div>{note.name}</div>
@@ -118,18 +114,12 @@ const TastingNotesPage: React.FC = () => {
           ))}
         </IonList>
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton
-            data-testid="fab-button"
-            onClick={() => handleNewNote()}
-          >
+          <IonFabButton data-testid="fab-button" onClick={() => handleNewNote()}>
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
         <IonModal isOpen={showModal}>
-          <TastingNoteEditor
-            onDismiss={({ refresh }) => handleOnDismiss(refresh)}
-            note={selectedNote}
-          />
+          <TastingNoteEditor onDismiss={({ refresh }) => handleOnDismiss(refresh)} note={selectedNote} />
         </IonModal>
       </IonContent>
     </IonPage>

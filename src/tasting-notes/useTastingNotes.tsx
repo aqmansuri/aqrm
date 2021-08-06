@@ -17,7 +17,7 @@ export const useTastingNotes = () => {
       const { data } = await instance.get(url);
       return data;
     },
-    [instance],
+    [instance]
   );
 
   const deleteNote = async (id: number): Promise<void> => {

@@ -3,16 +3,7 @@ import { useCallback } from 'react';
 import { useAuthInterceptor } from '../core/auth';
 import { Tea } from '../shared/models';
 
-const images: string[] = [
-  'green',
-  'black',
-  'herbal',
-  'oolong',
-  'dark',
-  'puer',
-  'white',
-  'yellow',
-];
+const images: string[] = ['green', 'black', 'herbal', 'oolong', 'dark', 'puer', 'white', 'yellow'];
 
 export const useTea = () => {
   const { instance } = useAuthInterceptor();
@@ -20,9 +11,7 @@ export const useTea = () => {
   const getTeas = useCallback(async (): Promise<Tea[]> => {
     const url = `/tea-categories`;
     const { data } = await instance.get(url);
-    return Promise.all(
-      data.map(async (item: any) => await fromJsonToTea(item)),
-    );
+    return Promise.all(data.map(async (item: any) => await fromJsonToTea(item)));
   }, [instance]);
 
   const getTeaById = useCallback(
@@ -31,7 +20,7 @@ export const useTea = () => {
       const { data } = await instance.get(url);
       return await fromJsonToTea(data);
     },
-    [instance],
+    [instance]
   );
 
   const saveTea = async (tea: Tea): Promise<void> => {

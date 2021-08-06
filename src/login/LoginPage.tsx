@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   IonButton,
   IonContent,
@@ -59,7 +59,7 @@ const LoginPage: React.FC = () => {
                 render={({ field: { onChange, value } }) => (
                   <IonInput
                     data-testid="email-input"
-                    onIonChange={e => onChange(e.detail.value!)}
+                    onIonChange={(e) => onChange(e.detail.value!)}
                     value={value}
                     type="email"
                   />
@@ -81,7 +81,7 @@ const LoginPage: React.FC = () => {
                 render={({ field: { onChange, value } }) => (
                   <IonInput
                     data-testid="password-input"
-                    onIonChange={e => onChange(e.detail.value!)}
+                    onIonChange={(e) => onChange(e.detail.value!)}
                     value={value}
                     type="password"
                   />
@@ -93,16 +93,9 @@ const LoginPage: React.FC = () => {
             </IonItem>
           </IonList>
           <div className="error-message" data-testid="errors">
-            <div>
-              {errors.email?.type === 'required' &&
-                'E-Mail Address is required'}
-            </div>
-            <div>
-              {errors.email?.type === 'pattern' && errors.email.message}
-            </div>
-            <div>
-              {errors.password?.type === 'required' && 'Password is required'}
-            </div>
+            <div>{errors.email?.type === 'required' && 'E-Mail Address is required'}</div>
+            <div>{errors.email?.type === 'pattern' && errors.email.message}</div>
+            <div>{errors.password?.type === 'required' && 'Password is required'}</div>
             {error && <div>{error}</div>}
           </div>
         </form>
@@ -112,7 +105,7 @@ const LoginPage: React.FC = () => {
           <IonButton
             expand="full"
             disabled={!isDirty || !isValid}
-            onClick={handleSubmit(data => handleLogin(data))}
+            onClick={handleSubmit((data) => handleLogin(data))}
             data-testid="submit-button"
           >
             Sign In

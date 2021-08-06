@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { isPlatform } from '@ionic/react';

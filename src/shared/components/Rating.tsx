@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonIcon } from '@ionic/react';
 import { star, starOutline } from 'ionicons/icons';
 
@@ -10,11 +10,7 @@ interface RatingProps {
   onRatingChange: (rating: number) => any;
 }
 
-export const Rating: React.FC<RatingProps> = ({
-  initialRating = 0,
-  disabled = false,
-  onRatingChange,
-}) => {
+export const Rating: React.FC<RatingProps> = ({ initialRating = 0, disabled = false, onRatingChange }) => {
   const [rating, setRating] = useState<number>(0);
 
   useEffect(() => setRating(initialRating), [initialRating]);

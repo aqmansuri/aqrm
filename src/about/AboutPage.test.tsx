@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 import AboutPage from './AboutPage';
@@ -19,14 +20,12 @@ describe('<AboutPage />', () => {
 
   it('displays the header', async () => {
     const { container } = render(<AboutPage />);
-    await waitFor(() =>
-      expect(container).toHaveTextContent(/About Tea Taster/),
-    );
+    await waitFor(() => expect(container).toHaveTextContent(/About Tea Taster/));
   });
 
   it('renders consistently', async () => {
     const { asFragment } = render(<AboutPage />);
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('sign out button', () => {

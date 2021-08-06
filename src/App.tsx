@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { Redirect, Route } from 'react-router-dom';

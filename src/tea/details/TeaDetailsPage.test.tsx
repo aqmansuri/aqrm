@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import TeaDetailsPage from './TeaDetailsPage';
 import { expectedTeas } from '../__mocks__/mockTeas';
@@ -23,8 +24,9 @@ describe('<TeaDetailsPage />', () => {
   });
 
   it('renders consistently', async () => {
-    const { asFragment } = render(<TeaDetailsPage />);
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    const { asFragment, container } = render(<TeaDetailsPage />);
+    await waitFor(() => expect(container).toHaveTextContent(mockTea.description));
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('renders the tea name', async () => {
@@ -34,8 +36,6 @@ describe('<TeaDetailsPage />', () => {
 
   it('renders the tea description', async () => {
     const { container } = render(<TeaDetailsPage />);
-    await waitFor(() =>
-      expect(container).toHaveTextContent(mockTea.description),
-    );
+    await waitFor(() => expect(container).toHaveTextContent(mockTea.description));
   });
 });

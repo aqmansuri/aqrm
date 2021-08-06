@@ -1,12 +1,6 @@
+import React from 'react';
 import { Redirect, Route, RouteComponentProps } from 'react-router';
-import {
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-} from '@ionic/react';
+import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { PrivateRoute } from './core/auth';
 import AboutPage from './about/AboutPage';
 import TastingNotesPage from './tasting-notes/TastingNotesPage';
@@ -17,22 +11,11 @@ import { leaf, documentText, informationCircle } from 'ionicons/icons';
 const Tabs: React.FC<RouteComponentProps> = ({ match }) => (
   <IonTabs>
     <IonRouterOutlet>
-      <Route
-        exact
-        path={match.url}
-        render={() => <Redirect to={`${match.url}/tea`} />}
-      />
+      <Route exact path={match.url} render={() => <Redirect to={`${match.url}/tea`} />} />
       <PrivateRoute exact path={`${match.url}/tea`} component={TeaPage} />
       <PrivateRoute exact path={`${match.url}/about`} component={AboutPage} />
-      <PrivateRoute
-        exact
-        path={`${match.url}/tasting-notes`}
-        component={TastingNotesPage}
-      />
-      <PrivateRoute
-        path={`${match.url}/tea/details/:id`}
-        component={TeaDetailsPage}
-      />
+      <PrivateRoute exact path={`${match.url}/tasting-notes`} component={TastingNotesPage} />
+      <PrivateRoute path={`${match.url}/tea/details/:id`} component={TeaDetailsPage} />
     </IonRouterOutlet>
     <IonTabBar slot="bottom" color="tertiary">
       <IonTabButton tab="tea" href={`${match.url}/tea`}>
