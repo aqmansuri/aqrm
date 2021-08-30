@@ -7,6 +7,11 @@
   --background: linear-gradient(white, var(--ion-color-secondary));
 }
 
+.unlock-app {
+  margin-top: 3em;
+  font-size: xx-large;
+}
+
 @media (prefers-color-scheme: dark) {
   .main-content {
     --background: linear-gradient(var(--ion-background-color), var(--ion-color-secondary));

@@ -3,7 +3,7 @@ import { useContext, useRef } from 'react';
 import { AuthContext } from './AuthContext';
 
 export const useAuthInterceptor = () => {
-  const { state, dispatch } = useContext(AuthContext);
+  const { state, dispatch, clearSession } = useContext(AuthContext);
 
   if (state === undefined) {
     throw new Error('useAuthInterceptor must be used with an AuthProvider');
@@ -21,8 +21,9 @@ export const useAuthInterceptor = () => {
 
   instance.interceptors.response.use(
     (response: AxiosResponse<any>) => response,
-    (error: any) => {
+    async (error: any) => {
       if (error.response.status === 401) {
+        await clearSession();
         dispatch({ type: 'CLEAR_SESSION' });
         return Promise.reject({ ...error, message: 'Unauthorized session.' });
       }
